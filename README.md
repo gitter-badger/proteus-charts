@@ -1,4 +1,6 @@
-# proteus-charts
+# proteus-charts 
+[![Build Status](https://travis-ci.com/0xNacho/proteus-charts.svg?token=241b7g8N6ChnwLAT35Ci&branch=master)](https://travis-ci.com/0xNacho/proteus-charts)
+
 HTML5 and CSS3 charts. UNDER DEVELOPMENT
 
 
