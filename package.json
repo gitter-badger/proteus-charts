@@ -1,5 +1,5 @@
 {
-  "name": "d3_from_zero_to_hero",
+  "name": "proteus-charts",
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
@@ -10,7 +10,7 @@
     "d3",
     "chart"
   ],
-  "author": "0xNacho",
+  "author": "Treelogic S.L.",
   "license": "MIT",
   "devDependencies": {
     "express": "^4.13.4",

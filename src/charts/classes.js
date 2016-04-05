@@ -4,6 +4,7 @@
  * Base class. This class is inherited in all charts implementations.
  * This is a non-instanciable chart.
  */
+
 class Chart{
   constructor(){
     if(new.target === Chart || new.target === Basic || new.target === Flow){
