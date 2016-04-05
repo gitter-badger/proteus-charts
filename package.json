@@ -1,0 +1,25 @@
+{
+  "name": "d3_from_zero_to_hero",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test --recursive"
+  },
+  "keywords": [
+    "d3",
+    "chart"
+  ],
+  "author": "0xNacho",
+  "license": "MIT",
+  "devDependencies": {
+    "express": "^4.13.4",
+    "socket.io": "^1.4.5",
+    "d3": "^3.5.16",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-uglify": "^1.5.3",
+    "gulp-util": "^3.0.7",
+    "socketio": "^1.0.0"
+  }
+}
