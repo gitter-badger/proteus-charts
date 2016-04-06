@@ -57,7 +57,7 @@ module.exports = function(config) {
     customLaunchers: {
       ChromeES6: {
         base: 'Chrome',
-        flags: ['--javascript-harmony', '--no-sandbox']
+        flags: ['--js-flags="--javascript-harmony"', '--no-sandbox']
       }
     },
 
