@@ -29,4 +29,4 @@ gulp.task('test', function (done) {
 	}, done).start();
 });
 
-gulp.task('default', ['concat', 'minify']);
+gulp.task('default', ['test', 'concat', 'minify']);
