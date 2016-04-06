@@ -13,14 +13,19 @@
   "author": "Treelogic S.L.",
   "license": "MIT",
   "devDependencies": {
-    "express": "^4.13.4",
-    "socket.io": "^1.4.5",
+    "chai": "^3.5.0",
     "d3": "^3.5.16",
+    "express": "^4.13.4",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-uglify": "^1.5.3",
     "gulp-util": "^3.0.7",
-    "socketio": "^1.0.0",
-    "mocha": "^2.4.5"
+    "karma": "^0.13.22",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-mocha": "^0.2.2",
+    "mocha": "^2.4.5",
+    "socket.io": "^1.4.5",
+    "socketio": "^1.0.0"
   }
 }
