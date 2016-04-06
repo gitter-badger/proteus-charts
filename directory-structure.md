@@ -10,7 +10,7 @@ Project Structure
 ├── dist/
 ├── src/
 
-└── tests/
+└── test/
 ```
 
 File/Folder description
@@ -23,7 +23,7 @@ File/Folder description
 * `css/`: 
 * `dist/`: 
 * `src/`: 
-* `tests/`: 
+* `test/`: 
 
 Code Style
 ------------------------
