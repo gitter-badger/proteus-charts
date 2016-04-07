@@ -11,3 +11,7 @@ before_script:
   - sudo dpkg -i google-chrome*.deb
   - npm install -g gulp
 script: gulp
+before_install:
+  - pip install codecov
+after_success:
+  - codecov
