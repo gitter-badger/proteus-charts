@@ -19,7 +19,7 @@ class Chart{
    * Object: Data is a data source we need to connect to, in order to receive a stream of data.
    */
   _inferDataSource(data){
-    if (isObject(data)){
+    if (utils.isObject(data)){
       this._initializeWebsocketDataSource(data);
     }
   }
@@ -51,7 +51,7 @@ class Chart{
    * @param  {Array} data Array of data
    */
   draw(data = this.data){
-    if(!isArray(data)){
+    if(!utils.isArray(data)){
       throw new TypeError('draw method is only allowed with static data.');
     }
   }
@@ -60,7 +60,7 @@ class Chart{
    * on event
    */
   on(eventName, action) {
-    
+
   }
 
 }
@@ -84,18 +84,3 @@ class Flow extends Chart {
     super();
   }
 }
-
-
-
-
-
-
-
-
-var isArray = function(d){
-return d.constructor === Array && d instanceof Array;
-};
-
-var isObject = function(d){
-return d.constructor === Object && d instanceof Object;
-};
