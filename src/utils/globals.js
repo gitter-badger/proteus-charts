@@ -19,19 +19,19 @@ const _default = {
   selector: '#chart',
   events: {
     down (){
-          d3.select(this).classed("hover", false);
+          d3.select(this).classed('hover', false);
     },
     over () {
       d3.select(this)
         .transition()
         .duration(150)
-        .attr("fill-opacity", 0.4);
+        .attr('fill-opacity', 0.4);
       },
       leave () {
         d3.select(this)
         .transition()
         .duration(150)
-        .attr("fill-opacity", 1);
+        .attr('fill-opacity', 1);
       },
     click (d,i) {
       console.log(d,i);
