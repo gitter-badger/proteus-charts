@@ -15,7 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.js',
+      'src/charts/classes.js',
+      'src/charts/barchart.js',
+      'src/charts/streamgraph.js',
       'test/*.js',
       'node_modules/d3/d3.min.js'
     ],

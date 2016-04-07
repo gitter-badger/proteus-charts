@@ -44,6 +44,10 @@ class Barchart extends Basic {
     this._svg.draw(data);
   }
 
+  /**
+   * Add new data to the current graph. If it is empty, this creates a new one.
+   * @param  {[type]} datum data to be rendered
+   */
   keepDrawing(datum){
     if(!this.datum){
       this.datum = [];
