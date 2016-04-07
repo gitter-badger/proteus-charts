@@ -6,8 +6,8 @@
  * This is a non-instanciable chart.
  */
 
-class Chart{
-  constructor(){
+class Chart {
+  constructor() {
     if(new.target === Chart || new.target === Basic || new.target === Flow){
       throw new TypeError(new.target + ' is non-instanciable');
     }
@@ -18,10 +18,10 @@ class Chart{
    * Array: Data is an static object.
    * Object: Data is a data source we need to connect to, in order to receive a stream of data.
    */
-  _inferDataSource(data){
-    if (utils.isObject(data)){
+  _inferDataSource(data) {
+    if (utils.isObject(data)) {
       this._initializeWebsocketDataSource(data);
-    }else if(!utils.isArray(data)){
+    }else if(!utils.isArray(data)) {
       throw new TypeError('Wrong data format');
     }
   }
@@ -29,7 +29,7 @@ class Chart{
    * Initialize a connecton between browser and server through a Websocket connections
    * @param  {Object} source Connection details.
    */
-  _initializeWebsocketDataSource(source){
+  _initializeWebsocketDataSource(source) {
 
       this.ws = new WebSocket(source.endpoint);
 
