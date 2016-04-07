@@ -54,7 +54,7 @@ class Barchart extends Basic {
     }
     this.datum = this.datum.concat(datum);
     if(this.datum.length > 50){
-      for(var i = 0; i < datum.length; i++){
+      for(let i = 0; i < datum.length; i++){
         this.datum.shift();
       }
     }

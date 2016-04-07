@@ -14,11 +14,8 @@ describe('Charts', function () {
       assert.throws(() => {
         new Flow()
       }, Error);
-
-      assert.throws(() => {
-        new Chart()
-      }, Error);
+      
     });
-    
+
   });
 });
