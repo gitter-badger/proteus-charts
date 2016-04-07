@@ -21,6 +21,12 @@ Open your browser on http://localhost:8888 and visit the examples folder.
 
 `node websocket-server.js`
 
+## Testing on a local environment
+If you are running tests on your local machine, yo need to do the following:
 
+`export CHROME_BIN=/usr/bin/google-chrome # or choose your custom google-chrome location`
 
+Why? By default, karma runner uses Chromium v37.0, which currently does not support ES6 features.
+
+# Project structure / code convention
 Folder/file descriptions and code convention: [directory-structure.md](https://github.com/PROTEUS-H2020/proteus-graphs/blob/master/directory-structure.md) 
