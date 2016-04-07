@@ -12,28 +12,28 @@ const _default = {
   width: 600,
   height: 250,
   ticks: 5, // ticks for y axis.
-  tooltip: function(object){
+  tooltip (object) {
     return 'Info: ' + JSON.stringify(object);
   },
   tickLabel: '%',
   selector: '#chart',
   events: {
-    down: function(){
+    down (){
           d3.select(this).classed("hover", false);
     },
-    over: function(){
+    over () {
       d3.select(this)
         .transition()
         .duration(150)
         .attr("fill-opacity", 0.4);
       },
-      leave: function(){
+      leave () {
         d3.select(this)
         .transition()
         .duration(150)
         .attr("fill-opacity", 1);
       },
-    click: function(d,i){
+    click (d,i) {
       console.log(d,i);
     }
   },
