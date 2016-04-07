@@ -21,6 +21,8 @@ class Chart{
   _inferDataSource(data){
     if (utils.isObject(data)){
       this._initializeWebsocketDataSource(data);
+    }else if(!utils.isArray(data)){
+      throw new TypeError('Wrong data format');
     }
   }
   /**
