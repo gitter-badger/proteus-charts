@@ -18,7 +18,6 @@ describe('Barchart', function () {
       assert.throws(() => {
         new Barchart(data)
       }, TypeError, 'Wrong data format');
-
     });
     
   });
