@@ -12,6 +12,6 @@ before_script:
   - npm install -g gulp
 script: gulp
 before_install:
-  - pip install codecov
+  - sudo pip install codecov
 after_success:
   - codecov
