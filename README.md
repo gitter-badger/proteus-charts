@@ -2,6 +2,7 @@
 [![Build Status](https://travis-ci.org/proteus-h2020/proteus-charts.svg?branch=development)](https://travis-ci.org/proteus-h2020/proteus-charts)
 [![devDependency Status](https://david-dm.org/proteus-h2020/proteus-charts/dev-status.svg)](https://david-dm.org/0xNacho/proteus-charts#info=devDependencies)
 [![Dependency Status](https://david-dm.org/proteus-h2020/proteus-charts.svg)](https://david-dm.org/0xNacho/proteus-charts)
+[![codecov.io](https://codecov.io/github/proteus-h2020/proteus-charts/coverage.svg?branch=master)](https://codecov.io/github/proteus-h2020/proteus-charts?branch=development)
 
 HTML5 and CSS3 charts.
 
