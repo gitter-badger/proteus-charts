@@ -1,7 +1,7 @@
 # proteus-charts 
-[![Build Status](https://travis-ci.com/0xNacho/proteus-charts.svg?token=241b7g8N6ChnwLAT35Ci&branch=master)](https://travis-ci.com/0xNacho/proteus-charts)
-[![devDependency Status](https://david-dm.org/0xNacho/proteus-charts/dev-status.svg)](https://david-dm.org/0xNacho/proteus-charts#info=devDependencies)
-[![Dependency Status](https://david-dm.org/0xNacho/proteus-charts.svg)](https://david-dm.org/0xNacho/proteus-charts)
+[![Build Status](https://travis-ci.org/proteus-h2020/proteus-charts.svg?branch=development)](https://travis-ci.org/proteus-h2020/proteus-charts)
+[![devDependency Status](https://david-dm.org/proteus-h2020/proteus-charts/dev-status.svg)](https://david-dm.org/0xNacho/proteus-charts#info=devDependencies)
+[![Dependency Status](https://david-dm.org/proteus-h2020/proteus-charts.svg)](https://david-dm.org/0xNacho/proteus-charts)
 
 HTML5 and CSS3 charts.
 
