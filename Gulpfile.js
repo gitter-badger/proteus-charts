@@ -10,7 +10,7 @@ gulp.task('concat', function() {
     './src/utils/globals.js',
     './src/utils/svg.js',
     './src/charts/classes.js',
-    './src/charts/barchart.js'
+    './src/charts/barchart.js',
     './src/charts/streamgraph.js'
   ])
   .pipe(concat('proteus-charts.js'))
