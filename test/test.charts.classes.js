@@ -4,7 +4,7 @@ describe('Charts', function () {
 
     it('throws a "Missing constructor parameters" if the data parameter is missing',() => {
       assert.throws(() => {
-        new Chart()
+        var chart = new Chart();
       }, Error);
 
       assert.throws(() => {
