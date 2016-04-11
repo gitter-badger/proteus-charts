@@ -62,6 +62,6 @@ class Barchart extends Basic {
         }
       }
     }
-    this._svg.draw(this.datum);
+    super.draw(this.datum);
   }
 }

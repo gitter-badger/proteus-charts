@@ -7,7 +7,6 @@
  */
 class Chart {
 
-
   constructor() {
     if(new.target === Chart || new.target === Basic || new.target === Flow){
       throw new Error(new.target + ' is non-instanciable');
