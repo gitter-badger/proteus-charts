@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Barchart implementation. This charts belongs to 'Basic' family.

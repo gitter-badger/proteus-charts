@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 /* globals Svg, _default */
 
 /**
