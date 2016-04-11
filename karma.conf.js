@@ -5,7 +5,7 @@ module.exports = function(config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: '',
+    basePath: '.',
 
 
     // frameworks to use
@@ -20,7 +20,7 @@ module.exports = function(config) {
       'src/charts/barchart.js',
       'src/charts/streamgraph.js',
       'test/*.js',
-      'node_modules/d3/d3.min.js'
+      'node_modules/d3/d3.min.js',
     ],
 
 
