@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Wed Apr 06 2016 14:18:09 GMT+0200 (CEST)
 
-module.exports = function(config) {
+module.exports = function export (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -20,7 +20,7 @@ module.exports = function(config) {
       'src/charts/barchart.js',
       'src/charts/streamgraph.js',
       'test/*.js',
-      'node_modules/d3/d3.min.js',
+      'node_modules/d3/d3.min.js'
     ],
 
 
@@ -50,7 +50,7 @@ module.exports = function(config) {
         // generates ./coverage/lcov.info
         {type:'lcovonly', subdir: '.'},
         // generates ./coverage/coverage-final.json
-        {type:'json', subdir: '.'},
+        {type:'json', subdir: '.'}
       ]
     },
 
@@ -89,5 +89,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};
