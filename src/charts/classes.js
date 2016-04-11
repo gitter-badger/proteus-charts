@@ -71,7 +71,6 @@ class Chart {
       .node()
       .parentNode.innerHTML;
     imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
-    console.log(imgsrc);
     return imgsrc;
   }
 
