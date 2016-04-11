@@ -40,10 +40,3 @@ const _default = {
   transitionDuration: 300,
   maxNumberOfElements: 50 // used by keepDrawing to reduce the number of elements in the current chart
 };
-
-var strategies = {
-  Barchart(i,k){
-    return new SvgBarchartStrategy(i,k);
-  }
- //'Streamgraph' : Streamgraph
-};
