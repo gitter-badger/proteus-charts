@@ -60,6 +60,7 @@ class Chart {
     if(!utils.isArray(data)){
       throw new TypeError('draw method is only allowed with static data.');
     }
+    this._svg.draw(data);
   }
   
   /**

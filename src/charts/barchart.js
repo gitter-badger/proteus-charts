@@ -42,7 +42,6 @@ class Barchart extends Basic {
    */
   draw(data = this.data){
     super.draw(data);
-    this._svg.draw(data);
   }
 
   /**
