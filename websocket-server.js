@@ -2,8 +2,8 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 
-io.on('connection', function(socket){
-  console.log('user connected');
+io.on('connection',(socket) =>
+	console.log('user connected');
 });
 
 var index = 0;
@@ -17,7 +17,6 @@ setInterval(function(){
 			y: parseInt(Math.random() * (100 - 20) + 20)
 		});
 	}
-
 	io.emit('dataMessage', data);
 }, 500);
 

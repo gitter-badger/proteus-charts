@@ -5,7 +5,6 @@
  * Base class. This class is inherited in all charts implementations.
  * This is a non-instanciable chart.
  */
-
 class Chart {
   constructor() {
     if(new.target === Chart || new.target === Basic || new.target === Flow){
@@ -25,6 +24,7 @@ class Chart {
       throw new TypeError('Wrong data format');
     }
   }
+  
   /**
    * Initialize a connecton between browser and server through a Websocket connections
    * @param  {Object} source Connection details.
@@ -66,8 +66,8 @@ class Chart {
     var selector, html, imgsrc;
     selector = this.config.selector;
     html = d3.select(selector + ' ' + 'svg')
-      .attr("version", 1.1)
-      .attr("xmlns", "http://www.w3.org/2000/svg")
+      .attr('version', 1.1)
+      .attr('xmlns', 'http://www.w3.org/2000/svg')
       .node()
       .parentNode.innerHTML;
     imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
@@ -78,7 +78,7 @@ class Chart {
    * on event
    */
   on(eventName, action) {
-
+    console.log(eventName, action);
   }
 
 }
