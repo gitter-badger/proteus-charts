@@ -13,6 +13,7 @@ class Barchart extends Basic {
    */
   constructor(){
     super();
+    
     if(!arguments.length){
       throw new Error('Missing constructor parameters');
     }
@@ -31,7 +32,7 @@ class Barchart extends Basic {
       default:
         throw Error('Unrecognized number of paremeters: ' + arguments);
     }
-    this._svg = new Svg(this.data, this.config);
+    
   }
 
   /**
@@ -49,13 +50,17 @@ class Barchart extends Basic {
    * @param  {[Object]} datum data to be rendered
    */
   keepDrawing(datum){
+    var config = this.config;
+    var maxNumberOfElements = config.maxNumberOfElements;
     if(!this.datum){
       this.datum = [];
     }
     this.datum = this.datum.concat(datum);
-    if(this.datum.length > 50){
-      for(let i = 0; i < datum.length; i++){
-        this.datum.shift();
+    if(maxNumberOfElements && maxNumberOfElements > 0){
+      if(this.datum.length > maxNumberOfElements){
+        for(let i = 0; i < datum.length; i++){
+          this.datum.shift();
+        }
       }
     }
     this._svg.draw(this.datum);

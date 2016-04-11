@@ -26,16 +26,24 @@ const _default = {
         .transition()
         .duration(150)
         .attr('fill-opacity', 0.4);
-      },
-      leave () {
-        d3.select(this)
+    },
+    leave () {
+      d3.select(this)
         .transition()
         .duration(150)
         .attr('fill-opacity', 1);
-      },
+    },
     click (d,i) {
       console.log(d,i);
     }
   },
-  transitionDuration: 300
+  transitionDuration: 300,
+  maxNumberOfElements: 50 // used by keepDrawing to reduce the number of elements in the current chart
+};
+
+var strategies = {
+  Barchart(i,k){
+    return new SvgBarchartStrategy(i,k);
+  }
+ //'Streamgraph' : Streamgraph
 };

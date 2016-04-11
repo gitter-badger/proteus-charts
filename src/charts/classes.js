@@ -6,10 +6,14 @@
  * This is a non-instanciable chart.
  */
 class Chart {
+
+
   constructor() {
     if(new.target === Chart || new.target === Basic || new.target === Flow){
       throw new Error(new.target + ' is non-instanciable');
     }
+
+    this._svg = new SvgStrategy(strategies[this.constructor.name](this.data,this.config));
   }
 
   /**

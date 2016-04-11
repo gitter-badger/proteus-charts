@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Streamgraph implementation. This charts belongs to 'Flow' family.
