@@ -57,6 +57,22 @@ class Chart {
       throw new TypeError('draw method is only allowed with static data.');
     }
   }
+  
+  /**
+   * Returns a PNG image of the current graph
+   * @return {[String]} Image in data-url format
+   */
+  toPNG(){
+    var selector, html, imgsrc;
+    selector = this.config.selector;
+    html = d3.select(selector + ' ' + 'svg')
+      .attr("version", 1.1)
+      .attr("xmlns", "http://www.w3.org/2000/svg")
+      .node()
+      .parentNode.innerHTML;
+    imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
+    return imgsrc;
+  }
 
   /**
    * on event
