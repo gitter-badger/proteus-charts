@@ -11,10 +11,14 @@ class Chart {
     if(new.target === Chart || new.target === Basic || new.target === Flow){
       throw new Error(new.target + ' is non-instanciable');
     }
-
-    this._svg = new SvgStrategy(strategies[this.constructor.name](this.data,this.config));
   }
 
+  /**
+   * Initialize the SVG context
+   */
+  _initializeSVGContext(){
+    this._svg = new SvgStrategy(strategies[this.constructor.name](this.data,this.config));
+  }
   /**
    * @param  {Object} data Data object. This method infer the type of data, which could be:
    * Array: Data is an static object.

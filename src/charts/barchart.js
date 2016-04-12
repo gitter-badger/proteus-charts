@@ -32,7 +32,7 @@ class Barchart extends Basic {
       default:
         throw Error('Unrecognized number of paremeters: ' + arguments);
     }
-    
+    this._initializeSVGContext();
   }
 
   /**

@@ -32,7 +32,7 @@ class Streamgraph extends Flow {
       default:
         throw Error('Unrecognized number of paremeters: ' + arguments);
     }
-    
+    this._initializeSVGContext();
   }
 
   /**

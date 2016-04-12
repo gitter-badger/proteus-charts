@@ -132,7 +132,10 @@ class SvgStreamgraphStrategy {
 	 * @param  {Object} config Config object
 	 */
     _loadConfigOnContext(config) {
-        config = config || { events: {} };
+        var config = config || { events: {} };
+        if(!config.events){
+            config.events = {};
+        }
         this.margin = config.margin || _default.margin;
         this.width = config.width || _default.width;
         this.height = config.height || _default.height;
