@@ -1,20 +1,20 @@
-describe('Charts', function () {
+describe('Charts', function() {
 
-  describe('Chart(), Flow(), Basic()', function () {
+  describe('Chart(), Flow(), Basic()', function() {
 
-    it('throws a "Missing constructor parameters" if the data parameter is missing',() => {
+    it('throws a "Missing constructor parameters" if the data parameter is missing', () => {
       assert.throws(() => {
         var chart = new Chart();
       }, Error);
 
       assert.throws(() => {
-        new Basic()
+        var basic = new Basic();
       }, Error);
 
       assert.throws(() => {
-        new Flow()
+        var flow = new Flow();
       }, Error);
-      
+
     });
 
   });
