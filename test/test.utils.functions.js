@@ -16,12 +16,28 @@ describe('Utils', function () {
       assert.isNotOk(utils.isArray({}));
     });
 
-    it('utils.isArray()', () => {
+    it('utils.isObject()', () => {
       assert.isOk(utils.isObject({}));
       assert.isOk(utils.isObject({'a':'b'}));
       assert.isNotOk(utils.isObject([]));
       assert.isNotOk(utils.isObject([{}]));
       assert.isNotOk(utils.isObject([{},{}]));
+    });
+    
+    it('utils.getArrayDifferentKeys() - simple array', () =>{
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys([1]), 1);
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys([1,2,3]), 3);
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys([1,2,2,2,3,3,3,4]), 4);
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys([]), 0);
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys(null), 0);
+    });
+    
+    it('utils.getArrayDifferentKeys() - object array', () =>{
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys([{},{}], 'keyname'), 0);
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys([{'key': 1},{'key': 2}], 'key'), 2);
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys([{'key': 1},{'key': 2},{},{'anotherkey': 1}], 'key'), 2);
+      assert.strictEqual(utils.getNumberOfDifferentArrayKeys([{'key': 1},{'key': 1}], 'key'), 1);
+
     });
     
   });
