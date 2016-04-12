@@ -9,8 +9,8 @@ const _default = {
     bottom: 30,
     left: 50
   },
-  width: 600,
-  height: 250,
+  width: 1100,
+  height: 450,
   ticks: 5, // ticks for y axis.
   tooltip (object) {
     return 'Info: ' + JSON.stringify(object);
