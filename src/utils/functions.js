@@ -5,12 +5,16 @@ var utils = {
 	isObject (d) {
 		return d && d.constructor === Object && d instanceof Object;
 	},
-  getArrayDifferentKeys(array, field){
+  getNumberOfDifferentArrayKeys(array, field){
+    if(!array || !array.length) return 0;
     var keys = [];
     for(let i = 0; i < array.length; i++){
       var element = field ? array[i][field] : array[i];
-      keys.push(element);
+      if(element){
+        keys.push(element);
+      }
     }
+    console.log(keys);
     return d3.set(keys).size();
   }
 };
