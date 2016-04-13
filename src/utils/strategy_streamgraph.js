@@ -133,7 +133,7 @@ class SvgStreamgraphStrategy {
 	 */
     _loadConfigOnContext(config) {
         var config = config || { events: {} };
-        if(!config.events){
+        if (!config.events) {
             config.events = {};
         }
         this.margin = config.margin || _default.margin;
