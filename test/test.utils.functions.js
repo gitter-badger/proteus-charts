@@ -37,7 +37,24 @@ describe('Utils', function() {
       assert.strictEqual(utils.getNumberOfDifferentArrayKeys([{ 'key': 1 }, { 'key': 2 }], 'key'), 2);
       assert.strictEqual(utils.getNumberOfDifferentArrayKeys([{ 'key': 1 }, { 'key': 2 }, {}, { 'anotherkey': 1 }], 'key'), 2);
       assert.strictEqual(utils.getNumberOfDifferentArrayKeys([{ 'key': 1 }, { 'key': 1 }], 'key'), 1);
+    });
 
+    it('utils.sortBy()  - sort array', () => {
+      var array, expectedResult, result;
+      array = [{ x: 1 }, { x: 2 }];
+      expectedResult = [{ x: 1 }, { x: 2 }];
+      result = utils.sortBy(array, { prop: 'x', desc: false });
+      assert.deepEqual(expectedResult, result);
+
+      array = [{ x: 1 }, { x: 2 }];
+      expectedResult = [{ x: 2 }, { x: 1 }];
+      result = utils.sortBy(array, { prop: 'x', desc: true });
+      assert.deepEqual(expectedResult, result);
+
+      array = [];
+      expectedResult = [];
+      result = utils.sortBy(array, { prop: 'x', desc: true });
+      assert.deepEqual(expectedResult, result);
     });
 
   });
