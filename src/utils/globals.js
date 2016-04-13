@@ -38,5 +38,9 @@ const _default = {
         }
     },
     transitionDuration: 300,
-    maxNumberOfElements: 0 // used by keepDrawing to reduce the number of elements in the current chart
+    maxNumberOfElements: 0, // used by keepDrawing to reduce the number of elements in the current chart
+    sortData: {
+      descending: false,
+      prop: 'x'
+    }
 };
