@@ -19,7 +19,7 @@ class SvgBarchartStrategy {
     this.yAxis = d3.svg.axis()
       .scale(this.y)
       .orient("left")
-      .innerTickSize(-width)
+      .innerTickSize(-this.width)
       .outerTickSize(0)
       .tickPadding(20)
       .ticks(this.ticks, this.tickLabel);
