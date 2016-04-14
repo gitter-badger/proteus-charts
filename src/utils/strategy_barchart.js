@@ -36,30 +36,36 @@ class SvgBarchartStrategy {
 	 */
   draw(data) {
     if (this._sortData) {
-      utils.sortBy(data, { 
+      utils.sortBy(data, {
         prop: this._sortData.prop,
         desc: this._sortData.descending
       });
     }
+    
+    console.warn('warning: looping data twice (sorting & parsing)');
+    data.forEach((d) => {
+      d[this.yAxisName] = +d[this.yAxisName];
+    });
 
     if (!this._initialized) {
       this._initialize();
     }
     //Re-scale axis
     this.x.domain(data.map(this.keyFunction));
-    this.y.domain([0, d3.max(data, d => d[this.yAxisName])]);
+    var max = d3.max(data, d => d[this.yAxisName]);
+    this.y.domain([0, max]);
+
     //Create a transition effect for axis rescaling
     this.svg.select('.x.axis').transition().duration(this.transitionDuration).call(this.xAxis);
     this.svg.select('.y.axis').transition().duration(this.transitionDuration).call(this.yAxis);
 
     //Bind data
     var bars = this.svg.selectAll(".bar").data(data, this.keyFunction);
-    //For new data, add bars and events
+    //For new data, add bars and events   
     bars.enter()
       .append("rect")
       .attr("class", "bar")
-      .attr("y", this.y(0))
-      .attr("height", this.height - this.y(0))
+      .attr("height", d => this.height - this.y(d[this.yAxisName]))
       .attr("fill", (d, i) => this.colors(i))
       //namespaces let us to provide more than one functon for the same event
       .on('mousedown.user', this.events.down)
@@ -84,6 +90,7 @@ class SvgBarchartStrategy {
       .attr("width", this.x.rangeBand())
       .attr("y", d => this.y(d[this.yAxisName]))
       .attr("height", d => (this.height - this.y(d[this.yAxisName])));
+
   };
 
 
@@ -98,7 +105,6 @@ class SvgBarchartStrategy {
       .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
     //Append a new group with 'x' aXis
-
     this.svg.append("g")
       .attr("class", "x axis")
       .attr("transform", "translate(0," + this.height + ")")
