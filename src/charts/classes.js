@@ -48,6 +48,7 @@ class Chart {
       };
       
       this.ws.onmessage = (event) => {
+        console.debug(event);
         var data = JSON.parse(event.data.substr(2))[1];
         setTimeout(() => {
           this.keepDrawing(data);
