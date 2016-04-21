@@ -13,7 +13,7 @@ HTML5 and CSS3 charts.
 
 `npm install`
 
-`python -m SimpleHTTPServer 8888`
+`npm serve`
 
 Open your browser on http://localhost:8888 and visit the examples folder.
 
