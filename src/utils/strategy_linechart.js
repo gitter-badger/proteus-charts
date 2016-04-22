@@ -55,21 +55,20 @@ class SvgLinechartStrategy {
     }
     //Re-scale axis
     // this.x.domain([0, d3.max(data, function (d) { return d.x; })]);
-    this.x.domain([0, d3.max(data, d => d.x)]);
+    this.x.domain([d3.min(data, d => d.x), d3.max(data, d => d.x)]);
     this.y.domain([0, d3.max(data, d => d.y)]);
 
     //Create a transition effect for axis rescaling
     this.svg.select('.x.axis').transition().duration(this.transitionDuration).call(this.xAxis);
     this.svg.select('.y.axis').transition().duration(this.transitionDuration).call(this.yAxis);
 
-    //Bind data
-    // var bars = this.svg.selectAll(".bar").data(data, this.keyFunction);
+    // Bind data
     var x = this.x
     var y = this.y
     var line = d3.svg.line()
       .x(function (d) {return x(d.x);})
       .y(function (d) { return y(d.y)});
-    //For new data, add bars and events
+    // Create path and bind data to it
     var path = this.svg.append("path")
       .datum(data, this.keyFunction)
       .attr("class", "line")
