@@ -8,17 +8,22 @@
 <!--<![endif]-->
     <head>
         <style>
+            path {
+                stroke: steelblue;
+                stroke-width: 2;
+                fill: none;
+            }
             .axis {
-              font: 10px sans-serif;
+                font: 10px sans-serif;
             }
             .axis path,
             .axis line {
-              fill: none;
-              stroke: #000;
-              shape-rendering: crispEdges;
+                fill: none;
+                stroke: #000;
+                shape-rendering: crispEdges;
             }
             .x.axis path {
-              display: none;
+                display: none;
             }
         </style>
       </head>
@@ -30,9 +35,9 @@
         <script src="../src/utils/globals.js"></script>
         <script src="../src/utils/strategies.js"></script>
         <script src="../src/utils/SvgStrategy.js"></script>
-        <script src="../src/utils/strategy_barchart.js"></script>
+        <script src="../src/utils/strategy_linechart.js"></script>
         <script src="../src/charts/classes.js" type="text/javascript"></script>
-        <script src="../src/charts/barchart.js" type="text/javascript"></script>
+        <script src="../src/charts/linechart.js" type="text/javascript"></script>
 
         <script>
           var data = {
@@ -40,7 +45,7 @@
           };
           //No draw() call, since it is connected to a endpoint and data is automaticaly drawn.
           //Chart uses #chart selector by default
-          barchart = new Barchart(data);
+          linechart = new Linechart(data);
         </script>
     </body>
 </html>

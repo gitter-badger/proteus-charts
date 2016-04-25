@@ -2,8 +2,8 @@ class SvgLinechartStrategy {
   constructor(data, config) {
     this._loadConfigOnContext(config);
     //Create range function
-    this.xAxisName = "x";
-    this.yAxisName = "y";
+    this.xAxisName = 'x';
+    this.yAxisName = 'y';
 
     this.x = d3.scale.linear().range([0, this.width]);
     this.y = d3.scale.linear().range([this.height, 0]);
@@ -14,12 +14,12 @@ class SvgLinechartStrategy {
     //Create scale
     this.xAxis = d3.svg.axis()
       .scale(this.x)
-      .orient("bottom")
+      .orient('bottom')
       .ticks(10);
 
     this.yAxis = d3.svg.axis()
       .scale(this.y)
-      .orient("left")
+      .orient('left')
       .innerTickSize(-this.width)
       .outerTickSize(0)
       .tickPadding(20)
@@ -42,14 +42,7 @@ class SvgLinechartStrategy {
       d[this.xAxisName] = +d[this.xAxisName];
 
     });
-
-    if (this._sortData) {
-      utils.sortBy(data, {
-        prop: this._sortData.prop,
-        desc: this._sortData.descending
-      });
-    }
-
+    
     if (!this._initialized) {
       this._initialize();
     }
@@ -68,11 +61,11 @@ class SvgLinechartStrategy {
     var line = d3.svg.line()
       .x(function (d) {return x(d.x);})
       .y(function (d) { return y(d.y)});
+
     // Create path and bind data to it
-    var path = this.svg.append("path")
+    var path = this.svg.select('path')
       .datum(data, this.keyFunction)
-      .attr("class", "line")
-      .attr("d", line);
+      .attr('d', line);
     // Add events to the line
     path
       .on('mousedown.user', this.events.down)
@@ -87,25 +80,29 @@ class SvgLinechartStrategy {
   _initialize() {
     var width = this.width + this.margin.left + this.margin.right;
     var height = this.height + this.margin.left + this.margin.right;
+
     //Create a global 'g' (group) element
     this.svg = d3
-      .select(this.selector).append("svg")
+      .select(this.selector).append('svg')
       .attr({ 'width': width, 'height': height })
-      .append("g")
-      .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+      .append('g')
+      .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
+
+    // Append the line path
+    this.svg.append('path');
 
     //Append a new group with 'x' aXis
-    this.svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + this.height + ")")
+    this.svg.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', 'translate(0,' + this.height + ')')
       .call(this.xAxis);
 
     //Append a new group with 'y' aXis
-    this.svg.append("g")
-      .attr("class", "y axis")
-      .attr("stroke-dasharray", "5, 5")
+    this.svg.append('g')
+      .attr('class', 'y axis')
+      .attr('stroke-dasharray', '5, 5')
       .call(this.yAxis)
-      .append("text");
+      .append('text');
     this._initialized = true;
   };
 
