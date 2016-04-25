@@ -28,6 +28,7 @@ describe('Barchart', function() {
       var data = [{ x: 0, y: 1 }, { x: 1, y: 2 }];
       var chart = new Barchart(data);
       chart.draw();
+      
       //wait for image creation
       setTimeout(function(){
         var result = chart.toPNG();
