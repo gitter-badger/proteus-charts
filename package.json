@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha test --recursive",
-    "serve": "python -m SimpleHTTPServer 8888",
-
+    "serve": "python -m SimpleHTTPServer 8888"
   },
   "keywords": [
     "d3",
