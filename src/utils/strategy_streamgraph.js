@@ -136,19 +136,19 @@ class SvgStreamgraphStrategy {
         if (!config.events) {
             config.events = {};
         }
-        this.margin = config.margin || _default.margin;
-        this.width = config.width || _default.width;
-        this.height = config.height || _default.height;
-        this.ticks = config.ticks || _default.ticks;
-        this.tickLabel = config.tickLabel || _default.tickLabel
-        this.selector = config.selector || _default.selector;
-        this.transitionDuration = config.transitionDuration || _default.transitionDuration;
-        this.tooltip = config.tooltip || _default.tooltip;
+        this.margin = config.margin || _default.streamgraph.margin;
+        this.width = config.width || _default.streamgraph.width;
+        this.height = config.height || _default.streamgraph.height;
+        this.ticks = config.ticks || _default.streamgraph.ticks;
+        this.tickLabel = config.tickLabel || _default.streamgraph.tickLabel
+        this.selector = config.selector || _default.streamgraph.selector;
+        this.transitionDuration = config.transitionDuration || _default.streamgraph.transitionDuration;
+        this.tooltip = config.tooltip || _default.streamgraph.tooltip;
         this.events = {};
-        this.events.down = config.events.down || _default.events.down;
-        this.events.up = config.events.up || _default.events.up;
-        this.events.over = config.events.over || _default.events.over;
-        this.events.click = config.events.click || _default.events.click;
-        this.events.leave = config.events.leave || _default.events.leave;
+        this.events.down = config.events.down || _default.streamgraph.events.down;
+        this.events.up = config.events.up || _default.streamgraph.events.up;
+        this.events.over = config.events.over || _default.streamgraph.events.over;
+        this.events.click = config.events.click || _default.streamgraph.events.click;
+        this.events.leave = config.events.leave || _default.streamgraph.events.leave;
     };
 };
