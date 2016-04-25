@@ -36,13 +36,13 @@ class SvgLinechartStrategy {
 	 * 
 	 */
   draw(data) {
-    console.warn('warning: looping data twice (sorting & parsing)');
-    data.forEach((d) => {
-      d[this.yAxisName] = +d[this.yAxisName];
-      d[this.xAxisName] = +d[this.xAxisName];
-
-    });
-    
+    if (this._sortData) {
+      utils.sortBy(data, {
+        prop: this._sortData.prop,
+        desc: this._sortData.descending
+      });
+    }
+        
     if (!this._initialized) {
       this._initialize();
     }
