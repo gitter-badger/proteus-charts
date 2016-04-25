@@ -4,6 +4,19 @@
  */
 const _default = {
   barchart: {
+    style:{
+      '.axis':{
+        'font': '10px sans-serif'
+      },
+      '.axis path,.axis line':{
+        'fill': 'none',
+        'stroke': '#000',
+        'shape-rendering': 'crispEdges'
+      },
+      '.x.axis path': {
+        'display': 'none'
+      }
+    },
     margin: {
       top: 20,
       right: 20,
@@ -46,6 +59,24 @@ const _default = {
     }
   },
   linechart: {
+    style:{
+      'path': {
+        'stroke': 'steelblue',
+        'stroke-width': 2,
+        'fill':  'none'
+      },
+      '.axis': {
+         'font': '10px sans-serif'
+      },
+      '.axis path,.axis line': {
+        'fill': 'none',
+        'stroke': '#000',
+        'shape-rendering': 'crispEdge'
+      },
+      '.x.axis path': {
+        'display': 'none'
+      }
+    },
     margin: {
       top: 20,
       right: 20,

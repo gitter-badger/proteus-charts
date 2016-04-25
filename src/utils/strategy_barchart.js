@@ -27,7 +27,18 @@ class SvgBarchartStrategy {
     this.colors = d3.scale.category20();
 
     this.keyFunction = (d => d.x);
+
   };
+
+  _applyCSS() {
+    var style = this.style;
+    for (let key in style) {
+      var value = style[key];
+      d3.selectAll(key).style(value);
+    }
+  }
+
+
 
 	/**
 	 * Renders a barchart based on data object
@@ -41,7 +52,7 @@ class SvgBarchartStrategy {
         desc: this._sortData.descending
       });
     }
-    
+
     console.warn('warning: looping data twice (sorting & parsing)');
     data.forEach((d) => {
       d[this.yAxisName] = +d[this.yAxisName];
@@ -90,8 +101,9 @@ class SvgBarchartStrategy {
       .attr("width", this.x.rangeBand())
       .attr("y", d => this.y(d[this.yAxisName]))
       .attr("height", d => (this.height - this.y(d[this.yAxisName])));
-
-  };
+  
+      this._applyCSS();
+  }
 
 
   _initialize() {
@@ -143,5 +155,7 @@ class SvgBarchartStrategy {
     this.events.click = config.events.click || _default.barchart.events.click;
     this.events.leave = config.events.leave || _default.barchart.events.leave;
     this._sortData = config.sortData || _default.barchart.sortData;
+
+    this.style = config.style || _default.barchart.style;
   };
 };

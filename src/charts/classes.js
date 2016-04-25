@@ -48,15 +48,13 @@ class Chart {
       };
       
       this.ws.onmessage = (event) => {
-        //console.debug(event);
-        //var data = JSON.parse(event.data.substr(2))[1];
         var data = JSON.parse(event.data).points;
         setTimeout(() => {
           this.keepDrawing(data);
           }, 50);
       };
   }
-
+  
   /**
    * Renders data on barchart. Only allowed when data is an array of static data.
    * @param  {Array} data Array of data

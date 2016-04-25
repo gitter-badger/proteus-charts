@@ -23,7 +23,7 @@ class Linechart extends Basic {
     switch(arguments.length){
       case 1:
         this.data = arguments[0];
-        this.config = _default;
+        this.config = _default.linechart;
         break;
       case 2:
         this.data = arguments[0];

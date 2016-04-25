@@ -30,6 +30,14 @@ class SvgLinechartStrategy {
     this.keyFunction = (d => d.x);
   };
 
+  _applyCSS() {
+    var style = this.style;
+    for (let key in style) {
+      var value = style[key];
+      d3.selectAll(key).style(value);
+    }
+  }
+  
 	/**
 	 * Renders a linechart based on data object
 	 * @param  {Object} data Data Object. Contains an array with x and y properties.
@@ -42,7 +50,7 @@ class SvgLinechartStrategy {
         desc: this._sortData.descending
       });
     }
-        
+
     if (!this._initialized) {
       this._initialize();
     }
@@ -59,8 +67,8 @@ class SvgLinechartStrategy {
     var x = this.x
     var y = this.y
     var line = d3.svg.line()
-      .x(function (d) {return x(d.x);})
-      .y(function (d) { return y(d.y)});
+      .x(function (d) { return x(d.x); })
+      .y(function (d) { return y(d.y) });
 
     // Create path and bind data to it
     var path = this.svg.select('path')
@@ -74,6 +82,7 @@ class SvgLinechartStrategy {
       .on('mouseover.user', this.events.over)
       .on('click.user', this.events.click);
 
+    this._applyCSS();
   };
 
 
@@ -130,5 +139,7 @@ class SvgLinechartStrategy {
     this.events.click = config.events.click || _default.linechart.events.click;
     this.events.leave = config.events.leave || _default.linechart.events.leave;
     this._sortData = config.sortData || _default.linechart.sortData;
+    this.style = config.style || _default.linechart.style;
+
   };
 };
