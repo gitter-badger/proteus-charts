@@ -10,7 +10,7 @@ before_script:
   - sudo apt-get install -y libappindicator1 fonts-liberation libxss1 libindicator7
   - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - sudo dpkg -i google-chrome*.deb
-  - npm install -g gulp
+  - npm install -g gulp --save-dev
 script: gulp
 before_install:
   - sudo pip install codecov
