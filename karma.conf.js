@@ -18,6 +18,7 @@ module.exports = function (config) {
       'src/utils/*.js',
       'src/charts/classes.js',
       'src/charts/barchart.js',
+      'src/charts/linechart.js',
       'src/charts/streamgraph.js',
       'test/*.js',
       'node_modules/d3/d3.min.js'
