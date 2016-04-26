@@ -1,11 +1,11 @@
 const strategies = {
-  Barchart(i, k) {
-    return new SvgBarchartStrategy(i, k);
+  Barchart(data, config) {
+    return new SvgBarchartStrategy(data, config, 'Barchart');
   },
-  Linechart(i,k){
-    return new SvgLinechartStrategy(i,k);
+  Linechart(data, config) {
+    return new SvgLinechartStrategy(data, config, 'Linechart');
   },
-  Streamgraph(i,k){
-    return new SvgStreamgraphStrategy(i,k);
+  Streamgraph(data, k) {
+    return new SvgStreamgraphStrategy(data, config, 'Streamgraph');
   }
 };

@@ -3,7 +3,7 @@
  * @type {Object}
  */
 const _default = {
-  barchart: {
+  Barchart: {
     style:{
       '.axis':{
         'font': '10px sans-serif'
@@ -58,7 +58,7 @@ const _default = {
       prop: 'x'
     }
   },
-  linechart: {
+  Linechart: {
     style:{
       'path': {
         'stroke': 'steelblue',

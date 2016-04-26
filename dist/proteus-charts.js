@@ -211,8 +211,6 @@ class Chart {
       };
       
       this.ws.onmessage = (event) => {
-        //console.debug(event);
-        //var data = JSON.parse(event.data.substr(2))[1];
         var data = JSON.parse(event.data).points;
         setTimeout(() => {
           this.keepDrawing(data);
@@ -236,7 +234,6 @@ class Chart {
    * @return {[String]} Image in data-url format
    */
   toPNG(cb){
-    console.log(this.config.selector, d3.select(this.config.selector + ' svg')[0][0]);
     utils.svgAsDataUri(d3.select(this.config.selector + ' svg')[0][0], {}, (uri,err) => {
       if(err){
         throw Error('Error converting to image ' + err);

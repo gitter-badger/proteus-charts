@@ -1,4 +1,5 @@
-var utils = {
+var utils = utils || {};
+utils = {
   isArray(d) {
     return d && d.constructor === Array && d instanceof Array;
   },

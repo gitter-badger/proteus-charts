@@ -11,7 +11,7 @@ class Linechart extends Basic {
    * Optionally, you can indicate a second argument that includes all the chart options. If you
    * do not specify this, '_default' object is used by default.
    */
-  constructor(){
+  constructor(data, config) {
     super();
 
     if(!arguments.length){
@@ -23,7 +23,7 @@ class Linechart extends Basic {
     switch(arguments.length){
       case 1:
         this.data = arguments[0];
-        this.config = _default.linechart;
+        this.config = _default[this.constructor.name];
         break;
       case 2:
         this.data = arguments[0];
@@ -40,7 +40,7 @@ class Linechart extends Basic {
    * @param  {Object} data This object contains the data that will be rendered on chart. If you do not
    * specify this param, this.data will be used instead.
    */
-  draw(data = this.data){
+  draw(data = this.data) {
     super.draw(data);
   }
 
@@ -48,16 +48,16 @@ class Linechart extends Basic {
    * Add new data to the current graph. If it is empty, this creates a new one.
    * @param  {[Object]} datum data to be rendered
    */
-  keepDrawing(datum){
+  keepDrawing(datum) {
     var config = this.config;
     var maxNumberOfElements = config.maxNumberOfElements;
-    if(!this.datum){
+    if (!this.datum) {
       this.datum = [];
     }
     this.datum = this.datum.concat(datum);
-    if(maxNumberOfElements && maxNumberOfElements > 0){
-      if(this.datum.length > maxNumberOfElements){
-        for(let i = 0; i < datum.length; i++){
+    if (maxNumberOfElements && maxNumberOfElements > 0) {
+      if (this.datum.length > maxNumberOfElements) {
+        for (let i = 0; i < datum.length; i++) {
           this.datum.shift();
         }
       }

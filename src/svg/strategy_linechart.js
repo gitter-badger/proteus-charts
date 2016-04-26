@@ -1,5 +1,6 @@
-class SvgLinechartStrategy {
-  constructor(data, config) {
+class SvgLinechartStrategy extends SvgChart {
+  constructor(data, config, cType) {
+    super(data, config, cType);
     this._loadConfigOnContext(config);
     //Create range function
     this.xAxisName = 'x';
@@ -30,30 +31,13 @@ class SvgLinechartStrategy {
     this.keyFunction = (d => d.x);
   };
 
-  _applyCSS() {
-    var style = this.style;
-    for (let key in style) {
-      var value = style[key];
-      d3.selectAll(key).style(value);
-    }
-  }
-  
 	/**
 	 * Renders a linechart based on data object
 	 * @param  {Object} data Data Object. Contains an array with x and y properties.
 	 * 
 	 */
   draw(data) {
-    if (this._sortData) {
-      utils.sortBy(data, {
-        prop: this._sortData.prop,
-        desc: this._sortData.descending
-      });
-    }
-
-    if (!this._initialized) {
-      this._initialize();
-    }
+    super.draw(data);
     //Re-scale axis
     // this.x.domain([0, d3.max(data, function (d) { return d.x; })]);
     this.x.domain([d3.min(data, d => d.x), d3.max(data, d => d.x)]);
@@ -120,26 +104,6 @@ class SvgLinechartStrategy {
 	 * @param  {Object} config Config object
 	 */
   _loadConfigOnContext(config) {
-    config = config || { events: {} };
-    if (!config.events) {
-      config.events = {};
-    }
-    this.margin = config.margin || _default.linechart.margin;
-    this.width = config.width || _default.linechart.width;
-    this.height = config.height || _default.linechart.height;
-    this.ticks = config.ticks || _default.linechart.ticks;
-    this.tickLabel = config.tickLabel || _default.linechart.tickLabel
-    this.selector = config.selector || _default.linechart.selector;
-    this.transitionDuration = config.transitionDuration || _default.linechart.transitionDuration;
-    this.tooltip = config.tooltip || _default.linechart.tooltip;
-    this.events = {};
-    this.events.down = config.events.down || _default.linechart.events.down;
-    this.events.up = config.events.up || _default.linechart.events.up;
-    this.events.over = config.events.over || _default.linechart.events.over;
-    this.events.click = config.events.click || _default.linechart.events.click;
-    this.events.leave = config.events.leave || _default.linechart.events.leave;
-    this._sortData = config.sortData || _default.linechart.sortData;
-    this.style = config.style || _default.linechart.style;
-
+    super._loadConfigOnContext(config);
   };
 };
