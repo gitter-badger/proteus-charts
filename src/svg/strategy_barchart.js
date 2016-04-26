@@ -1,7 +1,6 @@
 class SvgBarchartStrategy extends SvgChart {
   constructor(data, config, cType) {
     super(data, config, cType);
-    this._loadConfigOnContext(config);
     //Create range function
     this.xAxisName = "x";
     this.yAxisName = "y";
@@ -79,8 +78,8 @@ class SvgBarchartStrategy extends SvgChart {
       .attr("width", this.x.rangeBand())
       .attr("y", d => this.y(d[this.yAxisName]))
       .attr("height", d => (this.height - this.y(d[this.yAxisName])));
-  
-      this._applyCSS();
+
+    this._applyCSS();
   }
 
 
@@ -114,6 +113,10 @@ class SvgBarchartStrategy extends SvgChart {
 	 * @param  {Object} config Config object
 	 */
   _loadConfigOnContext(config) {
+    config = config || { events: {} };
+    if (!config.events) {
+      config.events = {};
+    }
     super._loadConfigOnContext(config);
   };
 };

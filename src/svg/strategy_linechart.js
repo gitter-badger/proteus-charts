@@ -1,7 +1,6 @@
 class SvgLinechartStrategy extends SvgChart {
   constructor(data, config, cType) {
     super(data, config, cType);
-    this._loadConfigOnContext(config);
     //Create range function
     this.xAxisName = 'x';
     this.yAxisName = 'y';
@@ -58,6 +57,26 @@ class SvgLinechartStrategy extends SvgChart {
     var path = this.svg.select('path')
       .datum(data, this.keyFunction)
       .attr('d', line);
+
+    // Append markers to line
+    if (this.markers) {
+      switch (this.markers.shape) {
+        case 'circle':
+          this.svg.selectAll('circle')
+            .data(data, this.keyFunction)
+            .enter().append('circle')
+            .attr('cx', function (d) { return x(d.x); })
+            .attr('cy', function (d) { return y(d.y); })
+            .attr('r', this.markers.size)
+            .style({
+              'fill': this.markers.color,
+              'stroke': this.markers.outlineColor,
+              'stroke-width': this.markers.outlineWidth
+            });
+          break;
+      }
+    }
+
     // Add events to the line
     path
       .on('mousedown.user', this.events.down)
@@ -104,6 +123,12 @@ class SvgLinechartStrategy extends SvgChart {
 	 * @param  {Object} config Config object
 	 */
   _loadConfigOnContext(config) {
+    config = config || { events: {} };
+    if (!config.events) {
+      config.events = {};
+    }
     super._loadConfigOnContext(config);
+    
+    this.markers = config.markers || _default.Linechart.markers;
   };
 };

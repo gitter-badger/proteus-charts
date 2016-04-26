@@ -6,6 +6,7 @@ class SvgChart {
         }
         this._initialized = false;
         this.cType = cType;
+        this._loadConfigOnContext(config);
     }
 
     draw(data) {
@@ -31,10 +32,6 @@ class SvgChart {
     }
 
     _loadConfigOnContext(config) {
-        config = config || { events: {} };
-        if (!config.events) {
-            config.events = {};
-        }
         this.margin = config.margin || _default[this.cType].margin;
         this.width = config.width ||  _default[this.cType].width;
         this.height = config.height ||  _default[this.cType].height;

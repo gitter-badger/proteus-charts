@@ -59,9 +59,18 @@ const _default = {
     }
   },
   Linechart: {
+    selector: '#chart',
+    margin: {
+      top: 20,
+      right: 20,
+      bottom: 30,
+      left: 50
+    },
+    width: 600,
+    height: 250,
     style:{
       'path': {
-        'stroke': 'steelblue',
+        'stroke': '#11D3BC',
         'stroke-width': 2,
         'fill':  'none'
       },
@@ -77,20 +86,18 @@ const _default = {
         'display': 'none'
       }
     },
-    margin: {
-      top: 20,
-      right: 20,
-      bottom: 30,
-      left: 50
-    },
-    width: 600,
-    height: 250,
     ticks: 5, // ticks for y axis.
+    markers: {
+      shape: 'circle',
+      size: 5,
+      color: '#FFFCCA',
+      outlineColor: '#537780',
+      outlineWidth: 2
+    },
     tooltip(object) {
       return 'Info: ' + JSON.stringify(object);
     },
     tickLabel: '',
-    selector: '#chart',
     events: {
       down() {
         d3.select(this).classed('hover', false);
@@ -99,13 +106,13 @@ const _default = {
         d3.select(this)
           .transition()
           .duration(50)
-          .style('stroke-width', 2);
+          .style('stroke-width', 3);
       },
       leave() {
         d3.select(this)
           .transition()
           .duration(50)
-          .style('stroke-width', 1);
+          .style('stroke-width', 2);
       },
       click(d, i) {
         console.log(d, i);
@@ -118,7 +125,7 @@ const _default = {
       prop: 'x'
     }
   },
-  streamgraph: {
+  Streamgraph: {
     margin: {
       top: 20,
       right: 20,
