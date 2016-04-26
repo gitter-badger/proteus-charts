@@ -128,7 +128,6 @@ class SvgLinechartStrategy extends SvgChart {
       config.events = {};
     }
     super._loadConfigOnContext(config);
-    
     this.markers = config.markers || _default.Linechart.markers;
   };
 };
