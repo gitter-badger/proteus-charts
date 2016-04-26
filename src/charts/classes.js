@@ -12,7 +12,7 @@ class Chart {
       throw new Error(new.target + ' is non-instanciable');
     }
   }
-  
+
   /**
    * Returns the chart context: data, configuration and chart type.
    */
@@ -48,22 +48,33 @@ class Chart {
    * @param  {Object} source Connection details.
    */
   _initializeWebsocketDataSource(source) {
-    this.ws = new WebSocket(source.endpoint);
-    
-    this.ws.onopen = () => {
-    };
+    let _initialize = () => {
+      this.ws = new WebSocket(source.endpoint);
 
-    this.ws.onerror = (e) => {
-      throw new Error('Error with websocket connection', e);
-    };
+      this.ws.onopen = () => {
+      };
 
-    this.ws.onmessage = (event) => {
-      //var data = JSON.parse(event.data).points;
-       var data = JSON.parse(event.data.substr(2))[1];
-      setTimeout(() => {
-        this.keepDrawing(data);
-      }, 50);
-    };
+      this.ws.onerror = (e) => {
+        throw new Error('Error with websocket connection', e);
+      };
+
+      this.ws.onmessage = (event) => {
+        //var data = JSON.parse(event.data).points;
+        var data = JSON.parse(event.data.substr(2))[1];
+        setTimeout(() => {
+          this.keepDrawing(data);
+        }, 50);
+      };
+    }
+
+
+    //private streaming functions, only available when using websockets
+    this.start = () => {
+      _initialize();
+    }
+    this.stop = () => {
+      this.ws.close();
+    }
   }
 
   /**
