@@ -74,6 +74,26 @@ class SvgLinechartStrategy {
     var path = this.svg.select('path')
       .datum(data, this.keyFunction)
       .attr('d', line);
+
+    // Append markers to line
+    if (this.markers) {
+      switch (this.markers.shape) {
+        case 'circle':
+          this.svg.selectAll('circle')
+            .data(data, this.keyFunction)
+            .enter().append('circle')
+            .attr('cx', function (d) { return x(d.x); })
+            .attr('cy', function (d) { return y(d.y); })
+            .attr('r', this.markers.size)
+            .style({
+              'fill': this.markers.color,
+              'stroke': this.markers.outlineColor,
+              'stroke-width': this.markers.outlineWidth
+            });
+          break;         
+      }
+    }
+
     // Add events to the line
     path
       .on('mousedown.user', this.events.down)
@@ -132,6 +152,7 @@ class SvgLinechartStrategy {
     this.selector = config.selector || _default.linechart.selector;
     this.transitionDuration = config.transitionDuration || _default.linechart.transitionDuration;
     this.tooltip = config.tooltip || _default.linechart.tooltip;
+    this.markers = config.markers || _default.linechart.markers;
     this.events = {};
     this.events.down = config.events.down || _default.linechart.events.down;
     this.events.up = config.events.up || _default.linechart.events.up;
@@ -140,6 +161,5 @@ class SvgLinechartStrategy {
     this.events.leave = config.events.leave || _default.linechart.events.leave;
     this._sortData = config.sortData || _default.linechart.sortData;
     this.style = config.style || _default.linechart.style;
-
   };
 };
