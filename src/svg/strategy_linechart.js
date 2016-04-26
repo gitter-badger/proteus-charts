@@ -62,9 +62,9 @@ class SvgLinechartStrategy extends SvgChart {
     if (this.markers) {
       switch (this.markers.shape) {
         case 'circle':
-          this.svg.selectAll('circle')
-            .data(data, this.keyFunction)
-            .enter().append('circle')
+          var markers = this.svg.selectAll('circle').data(data, this.keyFunction);
+          // markers.remove();
+          markers.enter().append('circle')
             .attr('cx', function (d) { return x(d.x); })
             .attr('cy', function (d) { return y(d.y); })
             .attr('r', this.markers.size)
@@ -73,6 +73,12 @@ class SvgLinechartStrategy extends SvgChart {
               'stroke': this.markers.outlineColor,
               'stroke-width': this.markers.outlineWidth
             });
+
+          markers
+            .transition()
+            .attr('cx', function (d) { return x(d.x); })
+            .attr('cy', function (d) { return y(d.y); })
+            .duration(0);
           break;
       }
     }
