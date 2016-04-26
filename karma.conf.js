@@ -53,7 +53,9 @@ module.exports = function (config) {
         // generates ./coverage/lcov.info
         {type:'lcovonly', subdir: '.'},
         // generates ./coverage/coverage-final.json
-        {type:'json', subdir: '.'}
+        {type:'json', subdir: '.'},
+        // generates HTML reports
+        {type : 'html', dir : 'coverage/'}
       ]
     },
 
